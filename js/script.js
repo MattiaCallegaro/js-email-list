@@ -2,7 +2,8 @@
 const inputEmail = document.getElementById('email');
 //mi dichiaro la variabile endpoint dandogli come valore indirizzi=10
 const endpoint = "https://flynn.boolean.careers/exercises/api/random/mail"
-
+//mi dichiaro la variabile button
+const buttonGenera = document.getElementById('button');
 //era sbagliato scriverlo
 // //effettuo la chiamata ajax 
 // axios.get(endpoint).then(pippo => {
@@ -12,7 +13,8 @@ const endpoint = "https://flynn.boolean.careers/exercises/api/random/mail"
 //     inputEmail.innerHTML = listaEmail;
 // })
 
-
+const genera = ()=>{
+    inputEmail.innerHTML = '<li class="list-group-item active rounded-2 text-center mb-4" aria-current="true">Email</li>';
 //mi creo un ciclo for per fare 10 controlli della funzione axios che mi genera una email casuale.
 for (let i = 0; i < 10; i++) {
     axios.get(endpoint).then(pippo => {
@@ -24,6 +26,9 @@ for (let i = 0; i < 10; i++) {
     })
 
 }
+}
+window.onload = genera;
+buttonGenera.addEventListener('click', genera);
 
 
 
